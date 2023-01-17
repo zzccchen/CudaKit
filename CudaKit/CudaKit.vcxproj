@@ -78,6 +78,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <CudaCompile Include="CudaKit.cu" />
+    <CudaCompile Include="tool.cu" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="tool.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

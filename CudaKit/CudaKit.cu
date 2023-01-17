@@ -3,6 +3,7 @@
 
 #include "cuda_runtime.h"              // define __global__ __device__
 #include "device_launch_parameters.h"  // define threadIdx
+#include "tool.h"
 
 #define TensorType double
 #define LX         1024
@@ -10,7 +11,7 @@
 #define LZ         100
 
 /**
- * @brief 定制-CUDA Grid尺寸计算
+ * @brief CUDA Grid尺寸计算
  *
  * @param tensor_dim - 三维矩阵长宽高
  * @param block_size - block长宽高
@@ -42,7 +43,7 @@ dim3 C_GridSizeSet(dim3 tensor_dim,
 }
 
 /**
- * @brief 定制-CUDA异常处理函数
+ * @brief CUDA异常处理函数
  *
  * @brief 打印异常信息, 不会中断程序运行, CUDA 常见错误类型:
  * @see 参考: https://blog.csdn.net/Bit_Coders/article/details/113181262
@@ -62,7 +63,7 @@ void C_CudaErrorHandle(const cudaError_t error,
 }
 
 /**
- * @brief 定制-make_cudaExtent
+ * @brief make_cudaExtent封装
  *
  * @brief 隐藏make_cudaExtent()细节, 以便统一修改.
  *
@@ -76,7 +77,7 @@ cudaExtent C_MakeCudaExtent(const dim3 tensor_dim) {
 }
 
 /**
- * @brief 定制-make_cudaPitchedPtr
+ * @brief make_cudaPitchedPtr封装
  *
  * @brief 隐藏make_cudaPitchedPtr()细节, 以便统一修改.
  *
@@ -93,7 +94,7 @@ cudaPitchedPtr C_MakeCudaPitchedPtr(TensorType*& host_tensor_ptr,
 }
 
 /**
- * @brief 定制-CUDA三维矩阵拷贝
+ * @brief CUDA三维矩阵拷贝
  *
  * @brief 支持Host->Deivce和Deivce->Host,
  * 隐藏make_cudaPitchedPtr()和make_cudaExtent()细节.
@@ -141,9 +142,9 @@ void C_CudaMemCpy3D(TensorType*& host_tensor_ptr,
 }
 
 /**
- * @brief 定制-Host三维矩阵空间申请
+ * @brief Host三维矩阵空间申请
  *
- * @brief 使用cudaMallocHost()申请锁页内存.
+ * @brief 使用cudaMallocHost()申请页锁定内存.
  * @see 参考: https://www.cnblogs.com/1024incn/p/4564726.html
  * @see 参考: https://segmentfault.com/a/1190000007693221
  * @see 参考: https://github.com/NVIDIA-developer-blog/code-samples/blob
@@ -168,7 +169,7 @@ void C_CudaMalloc3DHost(TensorType*& host_tensor_ptr,
 }
 
 /**
- * @brief 定制-Host三维矩阵空间释放
+ * @brief Host三维矩阵空间释放
  *
  * @param host_tensor_ptr - Host三维矩阵指针, 使用指针引用
  * @param last_function_name - 父级函数名, 使用 __FUNCTION__ 宏
@@ -185,7 +186,7 @@ void C_CudaFree3DHost(TensorType*& host_tensor_ptr,
 }
 
 /**
- * @brief 定制-Device三维矩阵空间申请
+ * @brief Device三维矩阵空间申请
  *
  * @brief 使用cudaMalloc3D()申请内存对齐显存.
  * @see 参考: https://www.cnblogs.com/cuancuancuanhao/p/7805892.html
@@ -265,6 +266,9 @@ __global__ void MatAdd(cudaPitchedPtr d_tensor_full,
 }
 
 int main() {
+  // C_GetCudaInfo();
+  // C_ProfileCopies();
+
   TensorType* h_tensor_full;
   TensorType* h_tensor_no_full_e;
   TensorType* h_tensor_no_full_w;
