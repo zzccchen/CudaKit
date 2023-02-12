@@ -49,7 +49,7 @@
         "activity/profile/launchskipcount": "0",
         "activity/profile/metrics": "",
         "activity/profile/nvtxincludeexcludeoptions": "",
-        "activity/profile/outputfile": "C:/Users/28045/source/repos/CudaKit/nsight/1",
+        "activity/profile/outputfile": "C:/Users/28045/source/repos/CudaKit/nsight/3",
         "activity/profile/rangereplayoptions": "",
         "activity/profile/replaymode": "Kernel",
         "activity/profile/samplingBufferSize": "33554432",

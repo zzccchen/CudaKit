@@ -931,7 +931,7 @@ void TestSOA_op() {
 int main() {
   // C_GetCudaInfo();
   // C_ProfileCopies();
-  TestSOA();
+  // TestSOA();
   // TestAOS();
-  // TestSOA_op();
+  TestSOA_op();
 }
