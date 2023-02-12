@@ -7,7 +7,7 @@
 
 #define TensorType double
 #define LX         1024
-#define LY         400
+#define LY         150
 #define LZ         100
 
 /**
