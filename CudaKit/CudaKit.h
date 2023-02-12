@@ -5,10 +5,33 @@
 #include "device_launch_parameters.h"  // define threadIdx
 #include "tool.h"
 
-#define TensorType double
+#define TensorType float
 #define LX         1024
 #define LY         100
 #define LZ         100
+
+struct T_19D_S {
+  TensorType Q0;
+  TensorType Q1;
+  TensorType Q2;
+  TensorType Q3;
+  TensorType Q4;
+  TensorType Q5;
+  TensorType Q6;
+  TensorType Q7;
+  TensorType Q8;
+  TensorType Q9;
+  TensorType Q10;
+  TensorType Q11;
+  TensorType Q12;
+  TensorType Q13;
+  TensorType Q14;
+  TensorType Q15;
+  TensorType Q16;
+  TensorType Q17;
+  TensorType Q18;
+  TensorType _;
+};
 
 /**
  * @brief CUDA Grid尺寸计算
@@ -51,6 +74,7 @@ void C_CudaErrorHandle(const cudaError_t error,
  * @return cudaExtent
  */
 cudaExtent C_MakeCudaExtent(const dim3 tensor_dim);
+cudaExtent C_MakeCudaExtent19(const dim3 tensor_dim);
 
 /**
  * @brief make_cudaPitchedPtr封装
@@ -64,6 +88,8 @@ cudaExtent C_MakeCudaExtent(const dim3 tensor_dim);
  */
 cudaPitchedPtr C_MakeCudaPitchedPtr(TensorType*& host_tensor_ptr,
                                     const dim3 tensor_dim);
+cudaPitchedPtr C_MakeCudaPitchedPtr19(T_19D_S*& host_tensor_ptr,
+                                      const dim3 tensor_dim);
 
 /**
  * @brief CUDA三维矩阵拷贝
@@ -85,6 +111,12 @@ void C_CudaMemCpy3D(TensorType*& host_tensor_ptr,
                     const dim3 tensor_dim,
                     const char* last_function_name,
                     const int last_function_line);
+void C_CudaMemCpy3D19(T_19D_S*& host_tensor_ptr,
+                      cudaPitchedPtr& device_tensor_ptr,
+                      const enum cudaMemcpyKind cpy_kind,
+                      const dim3 tensor_dim,
+                      const char* last_function_name,
+                      const int last_function_line);
 
 /**
  * @brief Host三维矩阵空间申请
@@ -104,6 +136,10 @@ void C_CudaMalloc3DHost(TensorType*& host_tensor_ptr,
                         const dim3 tensor_dim,
                         const char* last_function_name,
                         const int last_function_line);
+void C_CudaMalloc3DHost19(T_19D_S*& host_tensor_ptr,
+                          const dim3 tensor_dim,
+                          const char* last_function_name,
+                          const int last_function_line);
 
 /**
  * @brief Host三维矩阵空间释放
@@ -115,6 +151,9 @@ void C_CudaMalloc3DHost(TensorType*& host_tensor_ptr,
 void C_CudaFree3DHost(TensorType*& host_tensor_ptr,
                       const char* last_function_name,
                       const int last_function_line);
+void C_CudaFree3DHost19(T_19D_S*& host_tensor_ptr,
+                        const char* last_function_name,
+                        const int last_function_line);
 
 /**
  * @brief Device三维矩阵空间申请
@@ -131,6 +170,10 @@ void C_CudaMalloc3DDevice(cudaPitchedPtr& device_tensor_ptr,
                           const dim3 tensor_dim,
                           const char* last_function_name,
                           const int last_function_line);
+void C_CudaMalloc3DDevice19(cudaPitchedPtr& device_tensor_ptr,
+                            const dim3 tensor_dim,
+                            const char* last_function_name,
+                            const int last_function_line);
 
 /**
  * @brief 定制-Device三维矩阵空间释放

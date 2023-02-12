@@ -4,6 +4,10 @@
         {
             "is_open": true,
             "path": "../1.ncu-rep"
+        },
+        {
+            "is_open": true,
+            "path": "../2.ncu-rep"
         }
     ],
     "launcher": {
