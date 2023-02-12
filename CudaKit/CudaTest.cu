@@ -680,5 +680,5 @@ void TestSOA() {
 int main() {
   // C_GetCudaInfo();
   // C_ProfileCopies();
-  TestSOA();  // 15.6s
+  TestSOA();  // 10.4s 10.22ms
 }
