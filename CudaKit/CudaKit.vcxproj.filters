@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CudaCompile Include="CudaKit.cu">
+      <Filter>源文件</Filter>
+    </CudaCompile>
+    <CudaCompile Include="CudaTest.cu">
+      <Filter>源文件</Filter>
+    </CudaCompile>
+    <CudaCompile Include="tool.cu">
+      <Filter>源文件</Filter>
+    </CudaCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CudaKit.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="tool.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{c7bd0013-9213-4369-8f16-87e6e9b9611a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{18dad730-608b-45f8-b746-2a2a7b260b72}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
