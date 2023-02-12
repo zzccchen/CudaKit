@@ -456,43 +456,43 @@ void TestSOA() {
   C_CudaMalloc3DDevice(dd_17, tensor_dim, __FUNCTION__, __LINE__);
   C_CudaMalloc3DDevice(dd_18, tensor_dim, __FUNCTION__, __LINE__);
 
-  C_CudaMemCpy3D(h_0, dd_0, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_0, d_0, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_1, dd_1, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_1, d_1, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_2, dd_2, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_2, d_2, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_3, dd_3, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_3, d_3, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_4, dd_4, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_4, d_4, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_5, dd_5, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_5, d_5, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_6, dd_6, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_6, d_6, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_7, dd_7, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_7, d_7, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_8, dd_8, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_8, d_8, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_9, dd_9, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_9, d_9, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_10, dd_10, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_10, d_10, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_11, dd_11, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_11, d_11, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_12, dd_12, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_12, d_12, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_13, dd_13, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_13, d_13, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_14, dd_14, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_14, d_14, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_15, dd_15, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_15, d_15, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_16, dd_16, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_16, d_16, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_17, dd_17, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_17, d_17, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_18, dd_18, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_18, d_18, cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
                  __LINE__);
 
   char* ptr_d_0 = (char*)d_0.ptr;
@@ -570,43 +570,43 @@ void TestSOA() {
   }
 
   // std::cout << i << std::endl;
-  C_CudaMemCpy3D(h_0, d_0, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_0, dd_0, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_1, d_1, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_1, dd_1, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_2, d_2, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_2, dd_2, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_3, d_3, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_3, dd_3, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_4, d_4, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_4, dd_4, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_5, d_5, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_5, dd_5, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_6, d_6, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_6, dd_6, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_7, d_7, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_7, dd_7, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_8, d_8, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_8, dd_8, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_9, d_9, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_9, dd_9, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_10, d_10, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_10, dd_10, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_11, d_11, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_11, dd_11, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_12, d_12, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_12, dd_12, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_13, d_13, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_13, dd_13, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_14, d_14, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_14, dd_14, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_15, d_15, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_15, dd_15, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_16, d_16, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_16, dd_16, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_17, d_17, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_17, dd_17, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
                  __LINE__);
-  C_CudaMemCpy3D(h_18, d_18, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
+  C_CudaMemCpy3D(h_18, dd_18, cudaMemcpyDeviceToHost, tensor_dim, __FUNCTION__,
                  __LINE__);
 
   cudaDeviceSynchronize();
@@ -801,9 +801,137 @@ void TestAOS() {
   C_CudaFree3DHost19(h, __FUNCTION__, __LINE__);
 }
 
+__global__ void C_TestSOA_op(C_Ptr19D_A ptr_d,
+                             C_Ptr19D_A ptr_dd,
+                             int lx_1,
+                             int ly_1,
+                             int lz_1,
+                             int tensor_pitch_E1,
+                             int tensor_pitch_x_dim_y_E1) {
+  int global_idx = threadIdx.x + blockIdx.x * blockDim.x;
+  int global_idy = threadIdx.y + blockIdx.y * blockDim.y;
+  int global_idz = threadIdx.z + blockIdx.z * blockDim.z;
+
+  if (global_idx > lx_1 || global_idy > ly_1 || global_idz > lz_1) {
+    return;
+  }
+
+  TensorType f_curr[19];
+  TensorType* f_dd[19];
+
+  const int tensor_yz_pitch_E1 =
+      global_idz * tensor_pitch_x_dim_y_E1 + global_idy * tensor_pitch_E1;
+
+  for (int i = 0; i < 19; i++) {
+    f_curr[i] = *((TensorType*)(ptr_d[i] + tensor_yz_pitch_E1) + global_idx);
+  }
+  //  __syncthreads();
+  f_curr[0] = f_curr[0] + f_curr[1] + f_curr[2];
+  f_curr[3] = f_curr[3] + f_curr[4] + f_curr[5] + f_curr[6];
+  f_curr[7] = f_curr[7] + f_curr[8] + f_curr[9] + f_curr[10];
+  f_curr[10] = f_curr[10] + f_curr[11] + f_curr[12] + f_curr[13] + f_curr[14];
+  f_curr[14] = f_curr[14] + f_curr[15] + f_curr[16] + f_curr[17] + f_curr[18];
+
+  for (int i = 0; i < 19; i++) {
+    f_dd[i] = (TensorType*)(ptr_dd[i] + tensor_yz_pitch_E1) + global_idx;
+  }
+
+  for (int i = 0; i < 19; i++) {
+    *f_dd[i] = f_curr[i];
+  }
+}
+
+void TestSOA_op() {
+  H_Ptr19D_A h;
+
+  D_Ptr19D_A d;
+  D_Ptr19D_A dd;
+  dim3 tensor_dim = {LX, LY, LZ};
+
+  for (int i = 0; i < 19; i++) {
+    C_CudaMalloc3DHost(h[i], tensor_dim, __FUNCTION__, __LINE__);
+  }
+
+  cudaError_t cudaStatus;
+  for (int k = 0; k < 19; k++) {
+    for (int i = 0; i < LX * LY * LZ; i++) {
+      h[k][i] = 0.01 * (k + 1) * i;
+    }
+  }
+
+  for (int i = 0; i < 19; i++) {
+    C_CudaMalloc3DDevice(d[i], tensor_dim, __FUNCTION__, __LINE__);
+  }
+  for (int i = 0; i < 19; i++) {
+    C_CudaMalloc3DDevice(dd[i], tensor_dim, __FUNCTION__, __LINE__);
+  }
+  for (int i = 0; i < 19; i++) {
+    C_CudaMemCpy3D(h[i], d[i], cudaMemcpyHostToDevice, tensor_dim, __FUNCTION__,
+                   __LINE__);
+  }
+
+  C_Ptr19D_A ptr_d, ptr_dd;
+  for (int i = 0; i < 19; i++) {
+    ptr_d[i] = (char*)d[i].ptr;
+  }
+  for (int i = 0; i < 19; i++) {
+    ptr_dd[i] = (char*)dd[i].ptr;
+  }
+
+  int blocksize_x = 32;
+  int blocksize_y = 16;
+  int blocksize_z = 2;
+  dim3 block_size(blocksize_x, blocksize_y, blocksize_z);
+  dim3 grid_size =
+      C_GridSizeSet(tensor_dim, block_size, __FUNCTION__, __LINE__);
+
+  int lx_1 = LX - 1;
+  int ly_1 = LY - 1;
+  int lz_1 = LZ - 1;
+
+  const int tensor_pitch_E1 = int(d[0].pitch);
+  const int tensor_pitch_x_dim_y_E1 = tensor_pitch_E1 * tensor_dim.y;
+
+  clock_t start, end;
+  start = clock();
+
+  std::cout << h[1][(9 * LY + 399) * LX + 999] << "\t";
+  for (int m = 0; m < 1000; m++) {
+    cudaDeviceSynchronize();
+    C_TestSOA_op<<<grid_size, block_size>>>(ptr_d, ptr_dd, lx_1, ly_1, lz_1,
+                                            tensor_pitch_E1,
+                                            tensor_pitch_x_dim_y_E1);
+    cudaStatus = cudaGetLastError();
+    if (cudaStatus != cudaSuccess) {
+      fprintf(stderr, "TestSOA failed: %s\n", cudaGetErrorString(cudaStatus));
+    }
+    cudaDeviceSynchronize();
+  }
+
+  // std::cout << i << std::endl;
+  for (int i = 0; i < 19; i++) {
+    C_CudaMemCpy3D(h[i], dd[i], cudaMemcpyDeviceToHost, tensor_dim,
+                   __FUNCTION__, __LINE__);
+  }
+
+  cudaDeviceSynchronize();
+  std::cout << h[17][(9 * LY + 399) * LX + 999] << "\t";
+
+  end = clock();  // 结束时间
+  std::cout << "耗时 = " << double(end - start) / CLOCKS_PER_SEC << "s"
+            << std::endl;  // 输出时间（单位：ｓ）
+
+  for (int i = 0; i < 19; i++) {
+    C_CudaFree3DDevice(d[i], __FUNCTION__, __LINE__);
+    C_CudaFree3DDevice(dd[i], __FUNCTION__, __LINE__);
+    C_CudaFree3DHost(h[i], __FUNCTION__, __LINE__);
+  }
+}
+
 int main() {
   // C_GetCudaInfo();
   // C_ProfileCopies();
   TestSOA();
   // TestAOS();
+  // TestSOA_op();
 }

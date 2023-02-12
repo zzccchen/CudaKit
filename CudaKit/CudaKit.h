@@ -1,4 +1,5 @@
-﻿#include <ctime>
+﻿#include <array>
+#include <ctime>
 #include <iostream>
 
 #include "cuda_runtime.h"              // define __global__ __device__
@@ -9,6 +10,10 @@
 #define LX         1024
 #define LY         100
 #define LZ         100
+
+#define C_Ptr19D_A std::array<char*, 19>
+#define H_Ptr19D_A std::array<TensorType*, 19>
+#define D_Ptr19D_A std::array<cudaPitchedPtr, 19>
 
 struct T_19D_S {
   TensorType Q0;
