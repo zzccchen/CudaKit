@@ -801,6 +801,30 @@ void TestAOS() {
   C_CudaFree3DHost19(h, __FUNCTION__, __LINE__);
 }
 
+__constant__ TensorType D_M[19][19];
+const TensorType H_COLLISION_MATRIX[19][19] = {
+    {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},  // 0
+    {-30, -11, -11, -11, -11, -11, -11, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8,
+     8},                                                                // 1
+    {12, -4, -4, -4, -4, -4, -4, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},   // 2
+    {0, 1, -1, 0, 0, 0, 0, 1, -1, 1, -1, 1, -1, 1, -1, 0, 0, 0, 0},     // 3
+    {0, -4, 4, 0, 0, 0, 0, 1, -1, 1, -1, 1, -1, 1, -1, 0, 0, 0, 0},     // 4
+    {0, 0, 0, 1, -1, 0, 0, 1, -1, -1, 1, 0, 0, 0, 0, 1, -1, 1, -1},     // 5
+    {0, 0, 0, -4, 4, 0, 0, 1, -1, -1, 1, 0, 0, 0, 0, 1, -1, 1, -1},     // 6
+    {0, 0, 0, 0, 0, 1, -1, 0, 0, 0, 0, 1, -1, -1, 1, 1, -1, -1, 1},     // 7
+    {0, 0, 0, 0, 0, -4, 4, 0, 0, 0, 0, 1, -1, -1, 1, 1, -1, -1, 1},     // 8
+    {0, 2, 2, -1, -1, -1, -1, 1, 1, 1, 1, 1, 1, 1, 1, -2, -2, -2, -2},  // 9
+    {0, -4, -4, 2, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, -2, -2, -2, -2},    // 10
+    {0, 0, 0, 1, 1, -1, -1, 1, 1, 1, 1, -1, -1, -1, -1, 0, 0, 0, 0},    // 11
+    {0, 0, 0, -2, -2, 2, 2, 1, 1, 1, 1, -1, -1, -1, -1, 0, 0, 0, 0},    // 12
+    {0, 0, 0, 0, 0, 0, 0, 1, 1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0},        // 13
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, -1, -1},        // 14
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, -1, -1, 0, 0, 0, 0},        // 15
+    {0, 0, 0, 0, 0, 0, 0, 1, -1, 1, -1, -1, 1, -1, 1, 0, 0, 0, 0},      // 16
+    {0, 0, 0, 0, 0, 0, 0, -1, 1, 1, -1, 0, 0, 0, 0, 1, -1, 1, -1},      // 17
+    {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, -1, -1, 1, -1, 1, 1, -1}       // 18
+};
+
 __global__ void C_TestSOA_op(C_Ptr19D_A ptr_d,
                              C_Ptr19D_A ptr_dd,
                              int lx_1,
@@ -826,18 +850,27 @@ __global__ void C_TestSOA_op(C_Ptr19D_A ptr_d,
     f_curr[i] = *((TensorType*)(ptr_d[i] + tensor_yz_pitch_E1) + global_idx);
   }
   //  __syncthreads();
-  f_curr[0] = f_curr[0] + f_curr[1] + f_curr[2];
-  f_curr[3] = f_curr[3] + f_curr[4] + f_curr[5] + f_curr[6];
-  f_curr[7] = f_curr[7] + f_curr[8] + f_curr[9] + f_curr[10];
-  f_curr[10] = f_curr[10] + f_curr[11] + f_curr[12] + f_curr[13] + f_curr[14];
-  f_curr[14] = f_curr[14] + f_curr[15] + f_curr[16] + f_curr[17] + f_curr[18];
+  for (int q = 0; q < 19; ++q) {
+    f_curr[0] +=
+        f_curr[0] * D_M[q][0] + f_curr[1] * D_M[q][1] + f_curr[2] * D_M[q][2];
+    f_curr[3] += f_curr[3] * D_M[q][3] + f_curr[4] * D_M[q][4] +
+                 f_curr[5] * D_M[q][5] + f_curr[6] * D_M[q][6];
+    f_curr[7] += f_curr[7] * D_M[q][7] + f_curr[8] * D_M[q][8] +
+                 f_curr[9] * D_M[q][9] + f_curr[10] * D_M[q][10];
+    f_curr[10] += f_curr[10] * D_M[q][10] + f_curr[11] * D_M[q][11] +
+                  f_curr[12] * D_M[q][12] + f_curr[13] * D_M[q][13] +
+                  f_curr[14] * D_M[q][14];
+    f_curr[14] += f_curr[14] * D_M[q][14] + f_curr[15] * D_M[q][15] +
+                  f_curr[16] * D_M[q][16] + f_curr[17] * D_M[q][17] +
+                  f_curr[18] * D_M[q][18];
+  }
 
   for (int i = 0; i < 19; i++) {
     f_dd[i] = (TensorType*)(ptr_dd[i] + tensor_yz_pitch_E1) + global_idx;
   }
 
   for (int i = 0; i < 19; i++) {
-    *f_dd[i] = f_curr[i];
+    *(f_dd[i]) = f_curr[i];
   }
 }
 
@@ -848,6 +881,8 @@ void TestSOA_op() {
   D_Ptr19D_A dd;
   dim3 tensor_dim = {LX, LY, LZ};
 
+  cudaMemcpyToSymbol(D_M, &H_COLLISION_MATRIX, 19 * 19 * sizeof(TensorType));
+
   for (int i = 0; i < 19; i++) {
     C_CudaMalloc3DHost(h[i], tensor_dim, __FUNCTION__, __LINE__);
   }
@@ -855,7 +890,7 @@ void TestSOA_op() {
   cudaError_t cudaStatus;
   for (int k = 0; k < 19; k++) {
     for (int i = 0; i < LX * LY * LZ; i++) {
-      h[k][i] = 0.01 * (k + 1) * i;
+      h[k][i] = 0.001 * (k + 1) * i;
     }
   }
 
@@ -915,7 +950,7 @@ void TestSOA_op() {
   }
 
   cudaDeviceSynchronize();
-  std::cout << h[17][(9 * LY + 399) * LX + 999] << "\t";
+  std::cout << h[14][(9 * LY + 399) * LX + 999] << "\t";
 
   end = clock();  // 结束时间
   std::cout << "耗时 = " << double(end - start) / CLOCKS_PER_SEC << "s"
